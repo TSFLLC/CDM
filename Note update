@@ -1,0 +1,45 @@
+What was added to the history-enabled tables:
+
+Effective_Start_Date
+
+Effective_End_Date
+
+Is_Current
+
+Is_Active
+
+Created_Date
+
+Created_By
+
+Updated_Date
+
+Updated_By
+
+I added those to:
+
+Provider
+
+Address
+
+Contact
+
+License
+
+Employment
+
+all provider profile tables
+
+Why this is the right update:
+
+Is_Current tells you which row is the latest version
+
+Is_Active tells you whether the business record is active
+
+the date columns preserve version history
+
+the audit columns help identify who or what process changed the data
+
+For your meeting, you can say:
+
+I updated the model to support historical tracking using a Type 2 pattern. Instead of only overwriting values, the model can now preserve prior versions using effective dates, current/active flags, and audit columns.
