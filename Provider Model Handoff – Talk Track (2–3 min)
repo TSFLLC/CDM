@@ -1,0 +1,41 @@
+🟢 1. Start Strong (Context)
+
+The goal of this project was to take the business-defined CDE data from the CDM and master files and transform it into a normalized, provider-centered data model that supports governance, scalability, and traceability.
+
+🟢 2. Why the Model Changed
+
+The original structure was more of a flat business intake format. It mixed provider, location, contact, and reference data in a way that would not scale well for implementation.
+
+So we normalized the model by separating key domains like Provider, Address, Contact, and License, and introducing proper relationships between them.
+
+🟢 3. Why Tables Increased (Important Point)
+
+The model grew from around 20 tables to 27 tables mainly because we replaced free-text attributes with lookup tables and formalized relationships.
+
+For example, instead of storing values like Address Type or Status as text, we created controlled lookup tables. This improves data quality, consistency, and governance.
+
+🟢 4. Explain Lookup Tables (Very Important)
+
+Lookup tables like Provider_Status, Address_Type, Contact_Type, License_Type, and Ambience_Type were introduced to standardize values.
+
+This prevents inconsistencies like different spellings or formats and ensures all values are controlled through foreign key relationships.
+
+🟢 5. Ambience (Recent Change)
+
+The Ambience attribute was added based on business request. We evaluated where it belongs and placed it at the Address level because it represents the physical environment of the location, not the provider itself.
+
+We implemented it using a lookup table to keep the model consistent and scalable.
+
+🟢 6. History Design (Strong Point)
+
+For tracking changes, we chose to use separate history tables instead of embedding history columns in the main tables.
+
+This keeps the current-state tables simple and allows us to track changes over time in dedicated history tables like Provider_History and Address_History.
+
+🟢 7. Data Alignment Fix (Important)
+
+We also corrected earlier inconsistencies by aligning the model with the Model Master1 file, which is now the source of truth for business definitions and mappings.
+
+🟢 8. Close Strong
+
+Overall, the model is now provider-centric, normalized, and aligned with data governance standards. It supports controlled values, clear relationships, and history tracking, and is ready for implementation and further architectural refinement.
